@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaStudy.iml" filepath="$PROJECT_DIR$/JavaStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_Java基本语法/day01_Java基本语法.iml" filepath="$PROJECT_DIR$/day01_Java基本语法/day01_Java基本语法.iml" />
+    </modules>
+  </component>
+</project>
