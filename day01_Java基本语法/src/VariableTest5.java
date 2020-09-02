@@ -16,7 +16,7 @@ public class VariableTest5 {
         //****************
         //编译失败
         //float f1 = 12.3;
-        float f1 = (float)12.3;
+        float f1 = (float) 12.3;
         //2.编码情况2：
         //整型常量，默认类型为int型
         //浮点型常量，默认类型为double型
