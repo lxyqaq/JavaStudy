@@ -48,8 +48,7 @@ public class LogicTest {
         //不同点3：当符号左边是true时，|继续执行符号右边的运算，而||不再执行符号右边的运算
         //开发中，推荐使用||
         boolean b3 = false;
-        b3 = true;
-        int num3 = 10;
+        int num3 = -10;
         if (b3 | (num3++ > 0)) {
             System.out.println("我现在在北京");
         } else {
