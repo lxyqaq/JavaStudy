@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaStudy.iml" filepath="$PROJECT_DIR$/JavaStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_Java基本语法/day01_Java基本语法.iml" filepath="$PROJECT_DIR$/day01_Java基本语法/day01_Java基本语法.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_Java运算符/day02_Java运算符.iml" filepath="$PROJECT_DIR$/day02_Java运算符/day02_Java运算符.iml" />
     </modules>
   </component>
 </project>
