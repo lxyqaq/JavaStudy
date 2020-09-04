@@ -4,7 +4,7 @@ import java.util.Scanner;
  * @author lxyqaq
  * @date 2020/9/4 - 13:15
  */
-public class IfExercise {
+public class IfExercise1 {
     public static void main(String[] args) {
         int x = 4;
         int y = 1;
