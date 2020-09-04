@@ -38,6 +38,5 @@ public class IfTest1 {
             System.out.println("什么奖励也没有");
         }
 
-
     }
 }
