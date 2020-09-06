@@ -30,7 +30,7 @@ public class Utility {
     public static int readNumber() {
         int n;
         for (; ; ) {
-            String str = readKeyBoard(4);
+            String str = readKeyBoard(8);
             try {
                 n = Integer.parseInt(str);
                 break;
