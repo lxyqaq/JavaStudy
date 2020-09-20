@@ -68,7 +68,7 @@ public class ExceptionTest1 {
     @Test
     public void test2() {
         try {
-            File file = new File("hello.txt");
+            File file = new File("src/javacode1/hello.txt");
             FileInputStream fis = new FileInputStream(file);
 
             int data = fis.read();
