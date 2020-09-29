@@ -9,6 +9,10 @@ public class Team {
         this.points = 0;
     }
 
+    public Team(String s, int i, int i1) {
+
+    }
+
     public void win() {
         this.gamesPlayed++;
         this.points += 3;

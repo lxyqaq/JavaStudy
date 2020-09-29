@@ -22,9 +22,9 @@ class Money {
         }
     }
 
-    /** 
-     * @description How to return the total cent
+    /**
      * @return total cent
+     * @description How to return the total cent
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/9/21 12:52
      */
