@@ -32,7 +32,6 @@ public class Match {
                 "" + score1.read_value() + "\t " + score2.read_value());
     }
 
-
     public int readTeam1Score() {
         return score1.read_value();
     }
@@ -48,5 +47,4 @@ public class Match {
     public String readTeam2Name() {
         return team2;
     }
-
 }
