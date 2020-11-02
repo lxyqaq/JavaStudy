@@ -1,6 +1,6 @@
 package impl;
 
-import model.Categories;
+import impl.model.Categories;
 
 import java.rmi.*;
 import java.sql.Connection;

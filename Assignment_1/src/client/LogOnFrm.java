@@ -1,10 +1,9 @@
 package client;
 
-import dao.CategoriesDaoImpl;
-import dao.UserDaoImpl;
+import impl.dao.UserDaoImpl;
 import impl.CategoriesDao;
 import impl.UserDao;
-import model.User;
+import impl.model.User;
 import util.DbUtil;
 import util.StringUtil;
 

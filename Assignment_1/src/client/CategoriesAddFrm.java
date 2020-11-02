@@ -1,7 +1,7 @@
 package client;
 
-import dao.CategoriesDaoImpl;
-import model.Categories;
+import impl.dao.CategoriesDaoImpl;
+import impl.model.Categories;
 import util.DbUtil;
 import util.StringUtil;
 

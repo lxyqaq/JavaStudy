@@ -1,6 +1,6 @@
 package impl;
 
-import model.User;
+import impl.model.User;
 
 import java.rmi.*;
 import java.sql.Connection;

@@ -1,7 +1,7 @@
-package dao;
+package impl.dao;
 
 import impl.UserDao;
-import model.User;
+import impl.model.User;
 
 import java.rmi.server.*;
 import java.rmi.*;

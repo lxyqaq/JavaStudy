@@ -1,8 +1,6 @@
 package server;
 
-import dao.CategoriesDaoImpl;
-import dao.UserDaoImpl;
-import impl.UserDao;
+import impl.dao.UserDaoImpl;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

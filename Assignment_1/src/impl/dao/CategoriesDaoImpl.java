@@ -1,7 +1,7 @@
-package dao;
+package impl.dao;
 
 import impl.CategoriesDao;
-import model.Categories;
+import impl.model.Categories;
 import util.StringUtil;
 
 import java.rmi.RemoteException;
