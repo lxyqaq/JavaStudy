@@ -55,4 +55,8 @@ public class Categories implements Serializable {
     public void setCategoryDesc(String categoryDesc) {
         this.categoryDesc = categoryDesc;
     }
+
+    public String toString() {
+        return categoryName;
+    }
 }

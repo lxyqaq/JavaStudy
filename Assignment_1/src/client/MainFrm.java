@@ -95,6 +95,18 @@ public class MainFrm extends JFrame {
         mnNewMenu.add(mnNewMenu_3);
 
         JMenuItem mntmNewMenuItem_4 = new JMenuItem("Product added");
+        mntmNewMenuItem_4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ProductAddFrm productAddFrm = null;
+                try {
+                    productAddFrm = new ProductAddFrm();
+                } catch (RemoteException remoteException) {
+                    remoteException.printStackTrace();
+                }
+                productAddFrm.setVisible(true);
+                table.add(productAddFrm);
+            }
+        });
         mntmNewMenuItem_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
         mnNewMenu_3.add(mntmNewMenuItem_4);
 
