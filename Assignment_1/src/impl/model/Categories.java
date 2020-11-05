@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * @ClassName Categories
- * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Description Categories entity
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/1 18:22
  * @Version 1.0
  */
@@ -59,4 +59,5 @@ public class Categories implements Serializable {
     public String toString() {
         return categoryName;
     }
+
 }

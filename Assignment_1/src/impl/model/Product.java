@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * @ClassName Product
- * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Description Product entity
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/3 20:16
  * @Version 1.0
  */
@@ -77,4 +77,5 @@ public class Product implements Serializable {
     public void setProductPrice(Float productPrice) {
         this.productPrice = productPrice;
     }
+
 }

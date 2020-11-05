@@ -9,8 +9,8 @@ import java.rmi.registry.LocateRegistry;
 
 /**
  * @ClassName Server
- * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Description Project RMI Server Class
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/2 10:30
  * @Version 1.0
  */

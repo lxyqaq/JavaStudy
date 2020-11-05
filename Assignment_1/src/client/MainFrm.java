@@ -17,12 +17,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.rmi.RemoteException;
+import javax.swing.ImageIcon;
 
+/**
+ * @ClassName MainFrm
+ * @Description System function main page after successful login
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
+ * @Date 2020/11/1 17:35
+ * @Version 1.0
+ */
 public class MainFrm extends JFrame {
 
     private JPanel contentPane;
     private JDesktopPane table = null;
-
 
     /**
      * Launch the application.
@@ -43,7 +50,7 @@ public class MainFrm extends JFrame {
     /**
      * Create the frame.
      */
-    public MainFrm() {
+    public MainFrm() throws Exception {
         setTitle("Guitar Shop Management System Homepage");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
@@ -52,13 +59,17 @@ public class MainFrm extends JFrame {
         setJMenuBar(menuBar);
 
         JMenu mnNewMenu = new JMenu("Data Maintenance");
+        mnNewMenu.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/gear.png")));
         mnNewMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
         menuBar.add(mnNewMenu);
 
         JMenu mnNewMenu_2 = new JMenu("Category Management");
+        mnNewMenu_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        mnNewMenu_2.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/guitar.png")));
         mnNewMenu.add(mnNewMenu_2);
 
         JMenuItem mntmNewMenuItem_1 = new JMenuItem("Category added");
+        mntmNewMenuItem_1.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/add.png")));
         mntmNewMenuItem_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CategoriesAddFrm categoriesAddFrm = null;
@@ -74,7 +85,8 @@ public class MainFrm extends JFrame {
         mntmNewMenuItem_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         mnNewMenu_2.add(mntmNewMenuItem_1);
 
-        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Category management");
+        JMenuItem mntmNewMenuItem_2 = new JMenuItem("Category change");
+        mntmNewMenuItem_2.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/shuffle.png")));
         mntmNewMenuItem_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CategoriesManageFrm categoriesManageFrm = null;
@@ -91,10 +103,12 @@ public class MainFrm extends JFrame {
         mnNewMenu_2.add(mntmNewMenuItem_2);
 
         JMenu mnNewMenu_3 = new JMenu("Product Management");
+        mnNewMenu_3.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/shipping.png")));
         mnNewMenu_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
         mnNewMenu.add(mnNewMenu_3);
 
         JMenuItem mntmNewMenuItem_4 = new JMenuItem("Product added");
+        mntmNewMenuItem_4.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/add.png")));
         mntmNewMenuItem_4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ProductAddFrm productAddFrm = null;
@@ -110,11 +124,8 @@ public class MainFrm extends JFrame {
         mntmNewMenuItem_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
         mnNewMenu_3.add(mntmNewMenuItem_4);
 
-        JMenuItem mntmNewMenuItem_5 = new JMenuItem("Product management");
-        mntmNewMenuItem_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        mnNewMenu_3.add(mntmNewMenuItem_5);
-
         JMenuItem mntmNewMenuItem_3 = new JMenuItem("Quit");
+        mntmNewMenuItem_3.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/remove.png")));
         mntmNewMenuItem_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int result = JOptionPane.showConfirmDialog(null, "Do you want to log out of the system?");
@@ -127,10 +138,12 @@ public class MainFrm extends JFrame {
         mnNewMenu.add(mntmNewMenuItem_3);
 
         JMenu mnNewMenu_1 = new JMenu("About");
+        mnNewMenu_1.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/star.png")));
         mnNewMenu_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         menuBar.add(mnNewMenu_1);
 
         JMenuItem mntmNewMenuItem = new JMenuItem("About this Project");
+        mntmNewMenuItem.setIcon(new ImageIcon(MainFrm.class.getResource("/client/imgs/project-management.png")));
         mntmNewMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 AssignmentFrm assignmentFrm = new AssignmentFrm();

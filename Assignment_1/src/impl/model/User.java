@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * @ClassName User
- * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Description User entity
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/1 15:59
  * @Version 1.0
  */

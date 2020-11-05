@@ -21,7 +21,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  * @ClassName ProductAddFrm
- * @Description TODO
+ * @Description Product added page
  * @Author lxyqaq @Email A00279565@student.ait.ie
  * @Date 2020/11/3 20:58
  * @Version 1.0
@@ -64,32 +64,38 @@ public class ProductAddFrm extends JInternalFrame {
         setBounds(100, 100, 480, 490);
 
         JLabel lblNewLabel = new JLabel("Product Name:");
+        lblNewLabel.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/guitar.png")));
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         productNameTxt = new JTextField();
         productNameTxt.setColumns(10);
 
         JLabel lblNewLabel_1 = new JLabel("Product Code:");
+        lblNewLabel_1.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/code.png")));
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         productCodeTxt = new JTextField();
         productCodeTxt.setColumns(10);
 
         JLabel lblNewLabel_2 = new JLabel("Product Price:");
+        lblNewLabel_2.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/euro.png")));
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         productPriceTxt = new JTextField();
         productPriceTxt.setColumns(10);
 
         JLabel lblNewLabel_3 = new JLabel("Product Type:");
+        lblNewLabel_3.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/search.png")));
         lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         JLabel lblNewLabel_4 = new JLabel("Product Description:");
+        lblNewLabel_4.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/description.png")));
         lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         productDescTxt = new JTextArea();
 
         btnNewButton = new JButton("Add");
+        btnNewButton.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/check.png")));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -102,6 +108,7 @@ public class ProductAddFrm extends JInternalFrame {
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         JButton btnNewButton_1 = new JButton("Reset");
+        btnNewButton_1.setIcon(new ImageIcon(ProductAddFrm.class.getResource("/client/imgs/reset.png")));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetValueActionPerformed(e);
@@ -173,29 +180,43 @@ public class ProductAddFrm extends JInternalFrame {
         fillProductType();
     }
 
+    /**
+     * @param e
+     * @description Implementation of resetting all values on the page
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:35
+     */
     private void resetValueActionPerformed(ActionEvent e) {
         this.resetValue();
     }
 
+    /**
+     * @param evt
+     * @throws Exception
+     * @throws Exception
+     * @description Realization of product added functions
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:35
+     */
     private void productAddActionPerformed(ActionEvent evt) throws Exception {
         String productName = this.productNameTxt.getText();
         String productCode = this.productCodeTxt.getText();
         String productDesc = this.productDescTxt.getText();
         String productPrice = this.productPriceTxt.getText();
         if (StringUtil.isEmpty(productName)) {
-            JOptionPane.showMessageDialog(null, "名字不能为空！");
+            JOptionPane.showMessageDialog(null, "The name cannot be empty!");
             return;
         }
         if (StringUtil.isEmpty(productCode)) {
-            JOptionPane.showMessageDialog(null, "code不能为空！");
+            JOptionPane.showMessageDialog(null, "The code cannot be empty!");
             return;
         }
         if (StringUtil.isEmpty(productDesc)) {
-            JOptionPane.showMessageDialog(null, "desc不能为空！");
+            JOptionPane.showMessageDialog(null, "The description cannot be empty!");
             return;
         }
         if (StringUtil.isEmpty(productPrice)) {
-            JOptionPane.showMessageDialog(null, "price不能为空！");
+            JOptionPane.showMessageDialog(null, "The price cannot be empty!");
             return;
         }
         Categories categories = (Categories) productTypeJcb.getSelectedItem();
@@ -206,21 +227,26 @@ public class ProductAddFrm extends JInternalFrame {
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            int addNum = productDaoImpl.add(con,product);
-            if (addNum == 1){
-                JOptionPane.showMessageDialog(null,"添加成功");
+            int addNum = productDaoImpl.add(con, product);
+            if (addNum == 1) {
+                JOptionPane.showMessageDialog(null, "Added successfully!");
                 resetValue();
             } else {
-                JOptionPane.showMessageDialog(null,"添加失败！");
+                JOptionPane.showMessageDialog(null, "Add failed!");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"添加失败！");
+            JOptionPane.showMessageDialog(null, "Add failed!");
         } finally {
             dbUtil.closeCon(con);
         }
     }
 
+    /**
+     * @description Implementation of resetting all values on the page
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:36
+     */
     private void resetValue() {
         this.productNameTxt.setText("");
         this.productCodeTxt.setText("");
@@ -228,6 +254,12 @@ public class ProductAddFrm extends JInternalFrame {
         this.productPriceTxt.setText("");
     }
 
+    /**
+     * @throws Exception
+     * @description The realization of the function of selecting the product category
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:36
+     */
     private void fillProductType() {
         Connection con = null;
         Categories categories = null;

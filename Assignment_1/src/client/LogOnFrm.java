@@ -26,11 +26,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 /**
  * @ClassName LogOnFrm
- * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Description Management system login main page
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/1 16:43
  * @Version 1.0
  */
@@ -66,7 +67,7 @@ public class LogOnFrm extends JFrame {
     /**
      * Create the frame.
      */
-    public LogOnFrm() throws RemoteException,Exception {
+    public LogOnFrm() throws RemoteException, Exception {
         setResizable(false);
         setTitle("Administrator login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,8 +80,12 @@ public class LogOnFrm extends JFrame {
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 23));
 
         JLabel lblNewLabel_1 = new JLabel("Username");
+        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblNewLabel_1.setIcon(new ImageIcon(LogOnFrm.class.getResource("/client/imgs/user.png")));
 
         JLabel lblNewLabel_2 = new JLabel("Password");
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblNewLabel_2.setIcon(new ImageIcon(LogOnFrm.class.getResource("/client/imgs/padlock.png")));
 
         userNameTxt = new JTextField();
         userNameTxt.setColumns(10);
@@ -88,6 +93,8 @@ public class LogOnFrm extends JFrame {
         userDao = (UserDao) Naming.lookup(url + "toaster");
 
         JButton btnNewButton = new JButton("Sign in");
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        btnNewButton.setIcon(new ImageIcon(LogOnFrm.class.getResource("/client/imgs/check.png")));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 loginActionPerformed(e);
@@ -95,6 +102,8 @@ public class LogOnFrm extends JFrame {
         });
 
         JButton btnNewButton_1 = new JButton("Reset");
+        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        btnNewButton_1.setIcon(new ImageIcon(LogOnFrm.class.getResource("/client/imgs/reset.png")));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetValueActionPerformed(e);
@@ -150,6 +159,13 @@ public class LogOnFrm extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    /**
+     * @param evt
+     * @throws Exception
+     * @description Implementation of login method
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 14:48
+     */
     protected void loginActionPerformed(ActionEvent evt) {
         String userName = this.userNameTxt.getText();
         String passWord = new String(this.passWordTxt.getPassword());
@@ -183,8 +199,15 @@ public class LogOnFrm extends JFrame {
         }
     }
 
+    /**
+     * @param evt
+     * @description Realization of the method of resetting the page value
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 14:49
+     */
     private void resetValueActionPerformed(ActionEvent evt) {
         this.userNameTxt.setText("");
         this.passWordTxt.setText("");
     }
+
 }

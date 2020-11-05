@@ -1,6 +1,7 @@
 package client;
 
 import impl.dao.CategoriesDaoImpl;
+
 import impl.model.Categories;
 import util.DbUtil;
 import util.StringUtil;
@@ -24,17 +25,27 @@ import javax.swing.border.TitledBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
+/**
+ * @ClassName CategoriesManageFrm
+ * @Description Category management page
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
+ * @Date 2020/11/1 18:05
+ * @Version 1.0
+ */
 public class CategoriesManageFrm extends JInternalFrame {
     private JScrollPane scrollPane1;
     private JTable categoryTable;
-    private DbUtil dbUtil = new DbUtil();
-    private CategoriesDaoImpl categoriesDao = new CategoriesDaoImpl();
     private JTextField s_categoryNameTxt;
     private JTextField idTxt;
     private JTextField categoryNameTxt;
     private JTextArea categoryDescTxt;
 
+    private DbUtil dbUtil = new DbUtil();
+    private CategoriesDaoImpl categoriesDao = new CategoriesDaoImpl();
+
+    /**
+     * Launch the application.
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -94,11 +105,15 @@ public class CategoriesManageFrm extends JInternalFrame {
         }
 
         JLabel lblNewLabel = new JLabel("Category Name:");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblNewLabel.setIcon(new ImageIcon(CategoriesManageFrm.class.getResource("/client/imgs/dog-tag.png")));
 
         s_categoryNameTxt = new JTextField();
         s_categoryNameTxt.setColumns(10);
 
         JButton btnNewButton = new JButton("Search");
+        btnNewButton.setIcon(new ImageIcon(CategoriesManageFrm.class.getResource("/client/imgs/search.png")));
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 categorySearchActionPerformed(e);
@@ -140,21 +155,26 @@ public class CategoriesManageFrm extends JInternalFrame {
         );
 
         JLabel lblNewLabel_1 = new JLabel("id");
+        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         idTxt = new JTextField();
         idTxt.setEditable(false);
         idTxt.setColumns(10);
 
         JLabel lblNewLabel_2 = new JLabel("category name");
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         categoryNameTxt = new JTextField();
         categoryNameTxt.setColumns(10);
 
         JLabel lblNewLabel_3 = new JLabel("description");
+        lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
         categoryDescTxt = new JTextArea();
 
         JButton btnNewButton_1 = new JButton("modify");
+        btnNewButton_1.setIcon(new ImageIcon(CategoriesManageFrm.class.getResource("/client/imgs/order.png")));
+        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 categoryUpdateEvent(e);
@@ -162,6 +182,8 @@ public class CategoriesManageFrm extends JInternalFrame {
         });
 
         JButton btnNewButton_2 = new JButton("delete");
+        btnNewButton_2.setIcon(new ImageIcon(CategoriesManageFrm.class.getResource("/client/imgs/delete.png")));
+        btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 categoryDeleteEvent(e);
@@ -220,10 +242,17 @@ public class CategoriesManageFrm extends JInternalFrame {
         this.fillTable(new Categories());
     }
 
+    /**
+     * @param evt
+     * @throws Exception
+     * @description Implementation of category deletion function
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:19
+     */
     private void categoryDeleteEvent(ActionEvent evt) {
         String id = idTxt.getText();
-        if (StringUtil.isEmpty(id)){
-            JOptionPane.showMessageDialog(null,"Please select the record to delete！");
+        if (StringUtil.isEmpty(id)) {
+            JOptionPane.showMessageDialog(null, "Please select the record to delete！");
             return;
         }
         int n = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this record?！");
@@ -231,17 +260,17 @@ public class CategoriesManageFrm extends JInternalFrame {
             Connection con = null;
             try {
                 con = dbUtil.getCon();
-                int deleteNum = categoriesDao.delete(con,id);
-                if (deleteNum == 1){
+                int deleteNum = categoriesDao.delete(con, id);
+                if (deleteNum == 1) {
                     JOptionPane.showMessageDialog(null, "successfully deleted!");
                     this.resetValue();
                     this.fillTable(new Categories());
-                }else {
-                    JOptionPane.showMessageDialog(null,"failed to delete!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "failed to delete!");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 try {
                     dbUtil.closeCon(con);
                 } catch (Exception e) {
@@ -251,43 +280,55 @@ public class CategoriesManageFrm extends JInternalFrame {
         }
     }
 
+    /**
+     * @param evt
+     * @throws Exception
+     * @description Realization of category modification function
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:20
+     */
     private void categoryUpdateEvent(ActionEvent evt) {
         String id = idTxt.getText();
-        String bookTypeName = categoryNameTxt.getText();
-        String bookTypeDesc = categoryDescTxt.getText();
+        String categoryName = categoryNameTxt.getText();
+        String categoryDesc = categoryDescTxt.getText();
         if (StringUtil.isEmpty(id)) {
-            JOptionPane.showMessageDialog(null, "请选择要修改的记录");
+            JOptionPane.showMessageDialog(null, "Please select the record to be modified!");
             return;
         }
-        if (StringUtil.isEmpty(bookTypeName)) {
-            JOptionPane.showMessageDialog(null, "图书类别名称不能为空");
+        if (StringUtil.isEmpty(categoryName)) {
+            JOptionPane.showMessageDialog(null, "The category name cannot be empty!");
             return;
         }
-        Categories categories = new Categories(Integer.parseInt(id), bookTypeName, bookTypeDesc);
+        Categories categories = new Categories(Integer.parseInt(id), categoryName, categoryDesc);
         Connection con = null;
         try {
             con = dbUtil.getCon();
             int modifyNum = categoriesDao.update(con, categories);
             if (modifyNum == 1) {
-                JOptionPane.showMessageDialog(null, "修改成功");
+                JOptionPane.showMessageDialog(null, "Successfully modified!");
                 this.resetValue();
                 this.fillTable(new Categories());
             } else {
-                JOptionPane.showMessageDialog(null, "修改失败");
+                JOptionPane.showMessageDialog(null, "fail to edit!");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "修改失败");
+            JOptionPane.showMessageDialog(null, "fail to edit!");
         } finally {
             try {
                 dbUtil.closeCon(con);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
     }
 
+    /**
+     * @param e
+     * @description Implementation of mouse click event
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:20
+     */
     private void categoryTableMousePressed(MouseEvent e) {
         int row = categoryTable.getSelectedRow();
         idTxt.setText((String) categoryTable.getValueAt(row, 0));
@@ -295,6 +336,12 @@ public class CategoriesManageFrm extends JInternalFrame {
         categoryDescTxt.setText((String) categoryTable.getValueAt(row, 2));
     }
 
+    /**
+     * @param evt
+     * @description Realization of category search function
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:21
+     */
     private void categorySearchActionPerformed(ActionEvent evt) {
         String s_categoryName = this.s_categoryNameTxt.getText();
         Categories categories = new Categories();
@@ -302,6 +349,13 @@ public class CategoriesManageFrm extends JInternalFrame {
         this.fillTable(categories);
     }
 
+    /**
+     * @param categories
+     * @throws Exception
+     * @description Realization of adding table function
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:21
+     */
     private void fillTable(Categories categories) {
         DefaultTableModel dtm = (DefaultTableModel) categoryTable.getModel();
         dtm.setRowCount(0);
@@ -327,6 +381,11 @@ public class CategoriesManageFrm extends JInternalFrame {
         }
     }
 
+    /**
+     * @description Implementation of resetting all values on the page
+     * @author Xiangyu Liu @email A00279565@student.ait.ie
+     * @date 2020/11/5 15:22
+     */
     private void resetValue() {
         this.idTxt.setText("");
         this.categoryNameTxt.setText("");
