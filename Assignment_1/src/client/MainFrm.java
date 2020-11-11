@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import javax.swing.ImageIcon;
 
@@ -26,7 +27,7 @@ import javax.swing.ImageIcon;
  * @Date 2020/11/1 17:35
  * @Version 1.0
  */
-public class MainFrm extends JFrame {
+public class MainFrm extends JFrame implements Serializable {
 
     private JPanel contentPane;
     private JDesktopPane table = null;
@@ -94,6 +95,8 @@ public class MainFrm extends JFrame {
                     categoriesManageFrm = new CategoriesManageFrm();
                 } catch (RemoteException remoteException) {
                     remoteException.printStackTrace();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
                 }
                 categoriesManageFrm.setVisible(true);
                 table.add(categoriesManageFrm);
@@ -116,6 +119,8 @@ public class MainFrm extends JFrame {
                     productAddFrm = new ProductAddFrm();
                 } catch (RemoteException remoteException) {
                     remoteException.printStackTrace();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
                 }
                 productAddFrm.setVisible(true);
                 table.add(productAddFrm);

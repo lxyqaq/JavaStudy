@@ -1,5 +1,8 @@
 package client;
 
+import impl.CategoriesDao;
+import impl.ProductDao;
+import impl.UserDao;
 import impl.dao.CategoriesDaoImpl;
 import impl.dao.ProductDaoImpl;
 import impl.model.Categories;
@@ -14,6 +17,7 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,6 +31,10 @@ import javax.swing.LayoutStyle.ComponentPlacement;
  * @Version 1.0
  */
 public class ProductAddFrm extends JInternalFrame {
+    String url = "rmi:///";
+    ProductDao productDao;
+    CategoriesDao categoriesDao;
+
     private JTextField productNameTxt;
     private JTextField productCodeTxt;
     private JTextField productPriceTxt;
@@ -57,7 +65,7 @@ public class ProductAddFrm extends JInternalFrame {
     /**
      * Create the frame.
      */
-    public ProductAddFrm() throws RemoteException {
+    public ProductAddFrm() throws Exception {
         setTitle("Product Added");
         setClosable(true);
         setIconifiable(true);
@@ -199,6 +207,7 @@ public class ProductAddFrm extends JInternalFrame {
      * @date 2020/11/5 15:35
      */
     private void productAddActionPerformed(ActionEvent evt) throws Exception {
+        productDao = (ProductDao) Naming.lookup(url + "toaster1");
         String productName = this.productNameTxt.getText();
         String productCode = this.productCodeTxt.getText();
         String productDesc = this.productDescTxt.getText();
@@ -227,7 +236,7 @@ public class ProductAddFrm extends JInternalFrame {
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            int addNum = productDaoImpl.add(con, product);
+            int addNum = productDao.add(product);
             if (addNum == 1) {
                 JOptionPane.showMessageDialog(null, "Added successfully!");
                 resetValue();
@@ -260,12 +269,13 @@ public class ProductAddFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:36
      */
-    private void fillProductType() {
+    private void fillProductType() throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         Connection con = null;
         Categories categories = null;
         try {
             con = dbUtil.getCon();
-            ResultSet rs = categoriesDaoImpl.list(con, new Categories());
+            ResultSet rs = categoriesDaoImpl.list(new Categories());
             while (rs.next()) {
                 categories = new Categories();
                 categories.setCategoryId(rs.getInt("category_id"));

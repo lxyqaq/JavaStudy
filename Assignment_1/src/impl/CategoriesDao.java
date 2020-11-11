@@ -2,6 +2,7 @@ package impl;
 
 import impl.model.Categories;
 
+import java.io.Serializable;
 import java.rmi.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,12 +16,12 @@ import java.sql.ResultSet;
  */
 public interface CategoriesDao extends Remote {
 
-    public int add(Connection con, Categories categories) throws RemoteException, Exception;
+    public int add(Categories categories) throws RemoteException, Exception;
 
-    public ResultSet list(Connection con, Categories categories) throws RemoteException, Exception;
+    public ResultSet list(Categories categories) throws RemoteException, Exception;
 
-    public int delete(Connection con, String id) throws RemoteException, Exception;
+    public int delete(String id) throws RemoteException, Exception;
 
-    public int update(Connection con, Categories categories) throws RemoteException, Exception;
+    public int update(Categories categories) throws RemoteException, Exception;
 
 }

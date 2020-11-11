@@ -2,8 +2,10 @@ package impl.dao;
 
 import impl.CategoriesDao;
 import impl.model.Categories;
+import util.DbUtil;
 import util.StringUtil;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
@@ -17,7 +19,7 @@ import java.sql.ResultSet;
  * @Date 2020/11/1 18:26
  * @Version 1.0
  */
-public class CategoriesDaoImpl extends UnicastRemoteObject implements CategoriesDao {
+public class CategoriesDaoImpl extends UnicastRemoteObject implements CategoriesDao, Serializable {
 
     public CategoriesDaoImpl() throws RemoteException {
         super();
@@ -33,7 +35,9 @@ public class CategoriesDaoImpl extends UnicastRemoteObject implements Categories
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:43
      */
-    public int add(Connection con, Categories categories) throws Exception, RemoteException {
+    public int add(Categories categories) throws Exception, RemoteException {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         String sql = "insert into categories values(null,?,?)";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, categories.getCategoryName());
@@ -51,7 +55,9 @@ public class CategoriesDaoImpl extends UnicastRemoteObject implements Categories
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:50
      */
-    public ResultSet list(Connection con, Categories categories) throws Exception, RemoteException {
+    public ResultSet list(Categories categories) throws Exception, RemoteException {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         StringBuffer sb = new StringBuffer("select * from categories");
         if (StringUtil.isNotEmpty(categories.getCategoryName())) {
             sb.append(" and category_name like '%" + categories.getCategoryName() + "%'");
@@ -70,7 +76,9 @@ public class CategoriesDaoImpl extends UnicastRemoteObject implements Categories
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:52
      */
-    public int delete(Connection con, String id) throws Exception, RemoteException {
+    public int delete(String id) throws Exception, RemoteException {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         String sql = "delete from categories where category_id=?";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, id);
@@ -87,7 +95,9 @@ public class CategoriesDaoImpl extends UnicastRemoteObject implements Categories
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:54
      */
-    public int update(Connection con, Categories categories) throws Exception, RemoteException {
+    public int update(Categories categories) throws Exception, RemoteException {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         String sql = "update categories set category_name=?,category_desc=? where category_id=?";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setString(1, categories.getCategoryName());

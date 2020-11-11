@@ -11,6 +11,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.sql.Connection;
@@ -35,8 +36,7 @@ import javax.swing.ImageIcon;
  * @Date 2020/11/1 16:43
  * @Version 1.0
  */
-public class LogOnFrm extends JFrame {
-
+public class LogOnFrm extends JFrame implements Serializable {
     String url = "rmi:///";
     UserDao userDao;
     CategoriesDao categoriesDao;
@@ -46,7 +46,6 @@ public class LogOnFrm extends JFrame {
     private JPasswordField passWordTxt;
 
     private DbUtil dbUtil = new DbUtil();
-    private UserDaoImpl userDaoImpl = new UserDaoImpl();
 
     /**
      * Launch the application.
@@ -90,14 +89,16 @@ public class LogOnFrm extends JFrame {
         userNameTxt = new JTextField();
         userNameTxt.setColumns(10);
 
-        userDao = (UserDao) Naming.lookup(url + "toaster");
-
         JButton btnNewButton = new JButton("Sign in");
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton.setIcon(new ImageIcon(LogOnFrm.class.getResource("/client/imgs/check.png")));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                loginActionPerformed(e);
+                try {
+                    loginActionPerformed(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
@@ -166,7 +167,8 @@ public class LogOnFrm extends JFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 14:48
      */
-    protected void loginActionPerformed(ActionEvent evt) {
+    protected void loginActionPerformed(ActionEvent evt) throws Exception {
+        userDao = (UserDao) Naming.lookup(url + "toaster");
         String userName = this.userNameTxt.getText();
         String passWord = new String(this.passWordTxt.getPassword());
         if (StringUtil.isEmpty(userName)) {
@@ -181,7 +183,7 @@ public class LogOnFrm extends JFrame {
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            User currentUser = userDaoImpl.login(con, user);
+            User currentUser = userDao.login(user);
             if (currentUser != null) {
                 dispose();
                 new MainFrm().setVisible(true);

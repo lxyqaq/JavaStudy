@@ -14,6 +14,6 @@ import java.sql.Connection;
  */
 public interface UserDao extends Remote {
 
-    public User login(Connection con, User user) throws RemoteException, Exception;
+    public User login(User user) throws RemoteException, Exception;
 
 }

@@ -1,5 +1,7 @@
 package server;
 
+import impl.dao.CategoriesDaoImpl;
+import impl.dao.ProductDaoImpl;
 import impl.dao.UserDaoImpl;
 
 import java.net.MalformedURLException;
@@ -15,10 +17,14 @@ import java.rmi.registry.LocateRegistry;
  * @Version 1.0
  */
 public class Server {
-    public static void main(String[] args) throws RemoteException, MalformedURLException {
+    public static void main(String[] args) throws Exception {
         LocateRegistry.createRegistry(1099);
         System.out.println("java RMI registry created.");
         UserDaoImpl c = new UserDaoImpl();
+        ProductDaoImpl d = new ProductDaoImpl();
+        CategoriesDaoImpl e = new CategoriesDaoImpl();
         Naming.rebind("toaster", c);
+        Naming.rebind("toaster1", d);
+        Naming.rebind("toaster2", e);
     }
 }

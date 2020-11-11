@@ -2,7 +2,9 @@ package impl.dao;
 
 import impl.ProductDao;
 import impl.model.Product;
+import util.DbUtil;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
@@ -15,7 +17,7 @@ import java.sql.PreparedStatement;
  * @Date 2020/11/3 20:27
  * @Version 1.0
  */
-public class ProductDaoImpl extends UnicastRemoteObject implements ProductDao {
+public class ProductDaoImpl extends UnicastRemoteObject implements ProductDao, Serializable {
 
     public ProductDaoImpl() throws RemoteException {
         super();
@@ -31,7 +33,9 @@ public class ProductDaoImpl extends UnicastRemoteObject implements ProductDao {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:59
      */
-    public int add(Connection con, Product product) throws RemoteException, Exception {
+    public int add(Product product) throws RemoteException, Exception {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         String sql = "insert into products values(null,?,?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(sql);
         pstmt.setInt(1, product.getCategoryId());

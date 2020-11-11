@@ -1,5 +1,7 @@
 package client;
 
+import impl.CategoriesDao;
+import impl.ProductDao;
 import impl.dao.CategoriesDaoImpl;
 
 import impl.model.Categories;
@@ -12,6 +14,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.*;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -33,6 +36,9 @@ import java.awt.event.MouseEvent;
  * @Version 1.0
  */
 public class CategoriesManageFrm extends JInternalFrame {
+    String url = "rmi:///";
+    CategoriesDao categoriesDao;
+
     private JScrollPane scrollPane1;
     private JTable categoryTable;
     private JTextField s_categoryNameTxt;
@@ -41,7 +47,7 @@ public class CategoriesManageFrm extends JInternalFrame {
     private JTextArea categoryDescTxt;
 
     private DbUtil dbUtil = new DbUtil();
-    private CategoriesDaoImpl categoriesDao = new CategoriesDaoImpl();
+    private CategoriesDaoImpl categoriesDaoImpl = new CategoriesDaoImpl();
 
     /**
      * Launch the application.
@@ -62,7 +68,7 @@ public class CategoriesManageFrm extends JInternalFrame {
     /**
      * Create the frame.
      */
-    public CategoriesManageFrm() throws RemoteException {
+    public CategoriesManageFrm() throws Exception {
         setClosable(true);
         setIconifiable(true);
         setBounds(100, 100, 590, 625);
@@ -72,7 +78,11 @@ public class CategoriesManageFrm extends JInternalFrame {
         categoryTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                categoryTableMousePressed(e);
+                try {
+                    categoryTableMousePressed(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
         categoryTable.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -116,7 +126,11 @@ public class CategoriesManageFrm extends JInternalFrame {
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                categorySearchActionPerformed(e);
+                try {
+                    categorySearchActionPerformed(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
@@ -177,7 +191,11 @@ public class CategoriesManageFrm extends JInternalFrame {
         btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                categoryUpdateEvent(e);
+                try {
+                    categoryUpdateEvent(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
@@ -186,7 +204,11 @@ public class CategoriesManageFrm extends JInternalFrame {
         btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                categoryDeleteEvent(e);
+                try {
+                    categoryDeleteEvent(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
         GroupLayout gl_panel = new GroupLayout(panel);
@@ -249,7 +271,8 @@ public class CategoriesManageFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:19
      */
-    private void categoryDeleteEvent(ActionEvent evt) {
+    private void categoryDeleteEvent(ActionEvent evt) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         String id = idTxt.getText();
         if (StringUtil.isEmpty(id)) {
             JOptionPane.showMessageDialog(null, "Please select the record to delete！");
@@ -260,7 +283,7 @@ public class CategoriesManageFrm extends JInternalFrame {
             Connection con = null;
             try {
                 con = dbUtil.getCon();
-                int deleteNum = categoriesDao.delete(con, id);
+                int deleteNum = categoriesDao.delete(id);
                 if (deleteNum == 1) {
                     JOptionPane.showMessageDialog(null, "successfully deleted!");
                     this.resetValue();
@@ -287,7 +310,8 @@ public class CategoriesManageFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:20
      */
-    private void categoryUpdateEvent(ActionEvent evt) {
+    private void categoryUpdateEvent(ActionEvent evt) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         String id = idTxt.getText();
         String categoryName = categoryNameTxt.getText();
         String categoryDesc = categoryDescTxt.getText();
@@ -303,7 +327,7 @@ public class CategoriesManageFrm extends JInternalFrame {
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            int modifyNum = categoriesDao.update(con, categories);
+            int modifyNum = categoriesDao.update(categories);
             if (modifyNum == 1) {
                 JOptionPane.showMessageDialog(null, "Successfully modified!");
                 this.resetValue();
@@ -329,7 +353,8 @@ public class CategoriesManageFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:20
      */
-    private void categoryTableMousePressed(MouseEvent e) {
+    private void categoryTableMousePressed(MouseEvent e) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         int row = categoryTable.getSelectedRow();
         idTxt.setText((String) categoryTable.getValueAt(row, 0));
         categoryNameTxt.setText((String) categoryTable.getValueAt(row, 1));
@@ -342,7 +367,8 @@ public class CategoriesManageFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:21
      */
-    private void categorySearchActionPerformed(ActionEvent evt) {
+    private void categorySearchActionPerformed(ActionEvent evt) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         String s_categoryName = this.s_categoryNameTxt.getText();
         Categories categories = new Categories();
         categories.setCategoryName(s_categoryName);
@@ -356,13 +382,14 @@ public class CategoriesManageFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:21
      */
-    private void fillTable(Categories categories) {
+    private void fillTable(Categories categories) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         DefaultTableModel dtm = (DefaultTableModel) categoryTable.getModel();
         dtm.setRowCount(0);
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            ResultSet rs = categoriesDao.list(con, categories);
+            ResultSet rs = categoriesDaoImpl.list(categories);
             while (rs.next()) {
                 Vector v = new Vector();
                 v.add(rs.getString("category_id"));

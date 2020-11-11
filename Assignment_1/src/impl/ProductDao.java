@@ -15,6 +15,6 @@ import java.sql.Connection;
  */
 public interface ProductDao extends Remote {
 
-    public int add(Connection con, Product product) throws RemoteException, Exception;
+    public int add(Product product) throws RemoteException, Exception;
 
 }

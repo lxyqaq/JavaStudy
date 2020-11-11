@@ -1,5 +1,7 @@
 package client;
 
+import impl.CategoriesDao;
+import impl.UserDao;
 import impl.dao.CategoriesDaoImpl;
 import impl.model.Categories;
 import util.DbUtil;
@@ -13,6 +15,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 
@@ -24,12 +27,13 @@ import java.sql.Connection;
  * @Version 1.0
  */
 public class CategoriesAddFrm extends JInternalFrame {
-
+    String url = "rmi:///";
+    CategoriesDao categoriesDao;
     private JTextField categoryNameTxt;
     private JTextArea categoryDescTxt;
 
     private DbUtil dbUtil = new DbUtil();
-    private CategoriesDaoImpl categoriesDao = new CategoriesDaoImpl();
+    private CategoriesDaoImpl categoriesDaoImpl = new CategoriesDaoImpl();
 
     /**
      * Launch the application.
@@ -73,7 +77,11 @@ public class CategoriesAddFrm extends JInternalFrame {
         btnNewButton.setIcon(new ImageIcon(CategoriesAddFrm.class.getResource("/client/imgs/check.png")));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                categoryAddActionPerformed(e);
+                try {
+                    categoryAddActionPerformed(e);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
@@ -133,7 +141,8 @@ public class CategoriesAddFrm extends JInternalFrame {
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/5 15:14
      */
-    private void categoryAddActionPerformed(ActionEvent evt) {
+    private void categoryAddActionPerformed(ActionEvent evt) throws Exception {
+        categoriesDao = (CategoriesDao) Naming.lookup(url + "toaster2");
         String categoryName = this.categoryNameTxt.getText();
         String categoryDesc = this.categoryDescTxt.getText();
         if (StringUtil.isEmpty(categoryName)) {
@@ -144,7 +153,7 @@ public class CategoriesAddFrm extends JInternalFrame {
         Connection con = null;
         try {
             con = dbUtil.getCon();
-            int n = categoriesDao.add(con, categories);
+            int n = categoriesDao.add(categories);
             if (n == 1) {
                 JOptionPane.showMessageDialog(null, "The category is added successfully!");
                 resetValue();

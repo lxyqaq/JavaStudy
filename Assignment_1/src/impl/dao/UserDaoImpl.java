@@ -2,10 +2,13 @@ package impl.dao;
 
 import impl.UserDao;
 import impl.model.User;
+import util.DbUtil;
 
+import java.io.Serializable;
 import java.rmi.server.*;
 import java.rmi.*;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -28,12 +31,13 @@ public class UserDaoImpl extends UnicastRemoteObject implements UserDao {
      * @return user object
      * @throws RemoteException
      * @throws Exception
-     * @throws Exception
      * @description Find the attribute value of the field in the user table in the database
      * @author Xiangyu Liu @email A00279565@student.ait.ie
      * @date 2020/11/1 16:10
      */
-    public User login(Connection con, User user) throws RemoteException, Exception {
+    public User login(User user) throws RemoteException,Exception {
+        DbUtil dbUtil = new DbUtil();
+        Connection con = dbUtil.getCon();
         User resultUser = null;
         String sql = "select * from users where userName = ? and passWord = ?";
         PreparedStatement pstmt = con.prepareStatement(sql);
