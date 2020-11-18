@@ -1,7 +1,9 @@
 package Q4Skeleton;
 
+import Solutions.MyFrameRecursionA;
+
 public class TestRecursion {
     public static void main(String[] args) {
-        MyFrameRecursionQ mf2 = new MyFrameRecursionQ("First");
+        MyFrameRecursionA mf2 = new MyFrameRecursionA("First");
     }
 }

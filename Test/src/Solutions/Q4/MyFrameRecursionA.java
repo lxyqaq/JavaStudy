@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-class MyFrameRecursionA extends JFrame implements ActionListener {
+public class MyFrameRecursionA extends JFrame implements ActionListener {
     private JLabel l0 = new JLabel("  Recur  Application  ");
     private JLabel l1 = new JLabel("Number: ");
     private JTextField t1 = new JTextField("1234567", 8);
@@ -31,11 +31,17 @@ class MyFrameRecursionA extends JFrame implements ActionListener {
         int last = value % 10;
         int rest = value / 10;
         if (value < 10) {
-            if (value % 2 == 0) return value;
-            else return 0;
+            if (value % 2 == 0) {
+                return value;
+            } else {
+                return 0;
+            }
         } else {
-            if (last % 2 == 0) return last + addEven(rest);
-            else return 0 + addEven(rest);
+            if (last % 2 == 0) {
+                return last + addEven(rest);
+            } else {
+                return 0 + addEven(rest);
+            }
         }
     }
 
@@ -45,11 +51,17 @@ class MyFrameRecursionA extends JFrame implements ActionListener {
         int last = value % 10;
         int rest = value / 10;
         if (value < 10) {
-            if (value == 2) return false;
-            else return true;
+            if (value == 2) {
+                return false;
+            } else {
+                return true;
+            }
         } else {
-            if (last == 2) return false;
-            else return noTwos(rest);
+            if (last == 2) {
+                return false;
+            } else {
+                return noTwos(rest);
+            }
         }
     }
 
