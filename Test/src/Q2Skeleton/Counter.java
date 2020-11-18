@@ -11,7 +11,9 @@ public class Counter {
         if (value > 0) {
             this.value--;
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     public int readValue() {

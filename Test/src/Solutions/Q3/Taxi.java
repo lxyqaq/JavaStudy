@@ -10,7 +10,7 @@ class ExceedsLimit extends Exception {
 // InsufficientFunds
 
 
-class Taxi {
+public class Taxi {
     private String number;
     private String driver;
     protected int passengers;
@@ -47,5 +47,6 @@ class Taxi {
     public int readAvailableSpaces() {
         return capacity - passengers;
     }
+
 }
 
