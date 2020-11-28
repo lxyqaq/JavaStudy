@@ -26,13 +26,6 @@ public class TopJFrame extends JFrame {
         c = new CardLayout();
 
         jp = new JPanel(c);
-		
-		
-		
-		/*Icon iocn=new ImageIcon("photo/keda.jpg");//定义图片并初始化，写上图片的绝对路径
-		String icon = null;
-		JLabel jl=new JLabel(icon);//把图片放在标签上*/
-
 
         //窗口关闭分为四种情况，默认情况下，关闭窗口，只隐藏界面，不释放占用的内存
         //这个是直接关闭应用程序

@@ -1,23 +1,22 @@
-package project.view;
+package view;
 
-import java.awt.Color;
+import control.DiaListener;
+import control.InsertListener;
+import control.TableListener;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import project.control.DiaListener;
-import project.control.InsertListener;
-import project.control.TableListener;
-import project.data.StaticData;
-
+/**
+ * @ClassName InsertDialog
+ * @Description TODO
+ * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Date 2020/11/28 16:42
+ * @Version 1.0
+ */
 public class InsertDialog extends JDialog {
-
-
     private JLabel id, name, sex, age, academy, address;
     public static JLabel err;
     public static JTextField t_id, t_name, t_sex, t_age, t_academy, t_address;
@@ -26,7 +25,7 @@ public class InsertDialog extends JDialog {
 
     public InsertDialog() {
         this.setAlwaysOnTop(true);
-        this.setTitle("新增学生信息");
+        this.setTitle("Add employee information");
         this.setLayout(null);
         this.setSize(580, 320);
         this.setLocationRelativeTo(null);
@@ -45,8 +44,8 @@ public class InsertDialog extends JDialog {
         t_name = new JTextField();
         cb_sex = new JComboBox();
         cb_ac = new JComboBox();
-        ok = new JButton("保存");
-        cancle = new JButton("取消");
+        ok = new JButton("Save");
+        cancle = new JButton("Cancel");
 
         id.setBounds(30, 50, 30, 30);
         t_id.setBounds(80, 50, 100, 30);
@@ -54,21 +53,19 @@ public class InsertDialog extends JDialog {
         t_name.setBounds(250, 50, 100, 30);
         sex.setBounds(370, 50, 30, 30);
         cb_sex.setBounds(420, 50, 100, 30);
-        cb_sex.addItem("男");
-        cb_sex.addItem("女");
+        cb_sex.addItem("Male");
+        cb_sex.addItem("Female");
         age.setBounds(30, 100, 30, 30);
         t_age.setBounds(80, 100, 100, 30);
         academy.setBounds(200, 100, 30, 30);
         address.setBounds(370, 100, 100, 30);
         t_address.setBounds(420, 100, 100, 30);
         cb_ac.setBounds(250, 100, 100, 30);
-        cb_ac.addItem("计算机学院");
-        cb_ac.addItem("经济管理学院");
-        cb_ac.addItem("艺术学院");
-        cb_ac.addItem("外国语学院");
-        cb_ac.addItem("海洋学院");
-        cb_ac.addItem("电信学院");
-        cb_ac.addItem("机械学院");
+        cb_ac.addItem("Front-end Development");
+        cb_ac.addItem("Back-end Development");
+        cb_ac.addItem("Software Test");
+        cb_ac.addItem("Big Data Development");
+        cb_ac.addItem("AI development");
         err.setBounds(30, 150, 120, 30);
         err.setForeground(Color.RED);
         ok.setBounds(130, 200, 100, 30);
@@ -98,5 +95,4 @@ public class InsertDialog extends JDialog {
         add(cancle);
         setVisible(true);
     }
-
 }

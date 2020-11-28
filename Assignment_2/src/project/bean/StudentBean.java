@@ -1,4 +1,3 @@
-//Ñ§ÉúÀà
 package project.bean;
 
 public class StudentBean {

@@ -1,29 +1,32 @@
-package project.view;
+package view;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import bean.Archiect;
+import bean.Designer;
+import bean.Employee;
+import bean.Programmer;
+import control.TableListener;
+import main.Main;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.util.ArrayList;
 
-import project.control.TableListener;
-import project.data.StaticData;
-import project.main.Main;
-
-//import excel.excel;
+/**
+ * @ClassName ManagerJpanel
+ * @Description TODO
+ * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Date 2020/11/27 17:24
+ * @Version 1.0
+ */
 public class ManagerJpanel extends JPanel {
     private JButton jb_del, jb_find, jb_update, jb_insert, jb_out;
     public JTextField tex_id;
     private JLabel lab_check, lab_id;
     public static int row = 6;
-    public static DefaultTableModel t_m = new DefaultTableModel(Main.s_list, Main.t_head);
-
+    public static String[] t_head = {"ID", "Name", "Gender", "Salary", "Department", "Type"};
+    public static ArrayList<Employee> arrayList = new ArrayList<Employee>();
+    public static DefaultTableModel t_m = new DefaultTableModel(t_head,0);
 
     public static final JTable jt = new JTable(t_m) {
         public boolean isCellEditable(int row, int column) {
@@ -33,21 +36,37 @@ public class ManagerJpanel extends JPanel {
     private JScrollPane js;
 
     public ManagerJpanel() {
+
+        arrayList.add(new Employee("1", "jack", "man", "3000", "Front-end Development"));
+        arrayList.add(new Programmer("2", "jack", "man", "3000", "Back-end Development"));
+        arrayList.add(new Designer("3", "jack", "man", "3000", "Software Test"));
+        arrayList.add(new Archiect("4", "jack", "man", "3000", "Front-end Development"));
+        arrayList.add(new Programmer("5", "jack", "man", "3000", "Back-end Development"));
+        arrayList.add(new Programmer("6", "jack", "man", "3000", "Big data Development"));
+        for (int i = 0; i < arrayList.size(); i++) {
+            String id = arrayList.get(i).getId();
+            String name = arrayList.get(i).getName();
+            String sex = arrayList.get(i).getSex();
+            String salary = arrayList.get(i).getSalary();
+            String department = arrayList.get(i).getDepartment();
+            String type = arrayList.get(i).readType();
+            Object[] data = {id, name, sex, salary, department, type};
+            t_m.addRow(data);
+        }
+
         this.repaint();
         this.setLayout(null);
 
-        //创建按钮
         jb_del = new JButton(StaticData.DEL);
         jb_find = new JButton(StaticData.FIND);
         jb_update = new JButton(StaticData.UPDATE);
         jb_insert = new JButton(StaticData.INSETT);
         jb_out = new JButton(StaticData.OUT);
 
-
-        tex_id = new JTextField();//文本框
-        lab_check = new JLabel(StaticData.CHECK);//展示文本，数字或图片
+        tex_id = new JTextField();
+        lab_check = new JLabel(StaticData.CHECK);
         lab_id = new JLabel(StaticData.S_ID + ":");
-        jt.setDragEnabled(false);//是否启用自动拖动处理
+        jt.setDragEnabled(false);
         js = new JScrollPane();
         jt.setBackground(Color.LIGHT_GRAY);
         jt.setRowHeight(30);
@@ -57,7 +76,6 @@ public class ManagerJpanel extends JPanel {
         js.setViewportView(jt);
         js.setBounds(220, 30, 700, 450);
 
-        //为每个按钮分配位置
         jb_del.setBounds(20, 50, 100, 30);
         jb_del.setName("del");
         jb_find.setBounds(20, 100, 100, 30);
@@ -69,8 +87,6 @@ public class ManagerJpanel extends JPanel {
         jb_out.setBounds(20, 250, 100, 30);
         jb_out.setName("out");
 
-
-        //为每个按钮构造一个对象，并将这些对象设置为按钮监听器。
         TableListener t = new TableListener();
         jb_del.addMouseListener(t);
         jb_find.addMouseListener(t);
@@ -78,8 +94,6 @@ public class ManagerJpanel extends JPanel {
         jb_update.addMouseListener(t);
         jb_out.addMouseListener(t);
 
-
-        //将按钮添加到面板中需要调用add方法
         this.add(jb_del);
         this.add(jb_find);
         this.add(jb_update);
@@ -96,4 +110,3 @@ public class ManagerJpanel extends JPanel {
     }
 
 }
-

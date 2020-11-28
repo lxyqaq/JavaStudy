@@ -13,7 +13,6 @@ public class Footballer {
         team = new Team(t, hg);
         salary = sal;
         number = no;
-
     }
 
     public String readName() {

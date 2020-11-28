@@ -13,6 +13,12 @@ import project.bean.StudentBean;
 import project.view.TopJFrame;
 
 public class Main {
+
+    public static TopJFrame top;
+
+    public static void main(String[] args) throws IOException {
+        top = new TopJFrame("学生信息管理系统");
+    }
     //设置表的题头
     public static String[] t_head = {"学号", "姓名", "性别", "年龄", "学院", "地址"};
 
@@ -27,14 +33,6 @@ public class Main {
         s_list[3] = new String[]{"16103304", "小美", "女", "22", "艺术学院", "海南"};
         s_list[4] = new String[]{"16103305", "小南", "男", "20", "经管学院", "甘肃"};
         s_list[5] = new String[]{"16103306", "小杰", "男", "20", "电信学院", "浙江"};
-    }
-
-
-    //定义大框的名字
-    public static TopJFrame top;
-
-    public static void main(String[] args) throws IOException {
-        top = new TopJFrame("学生信息管理系统");
     }
 
 }

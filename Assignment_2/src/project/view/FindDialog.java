@@ -107,7 +107,6 @@ public class FindDialog extends JDialog {
         cancle.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 TableListener.jd_u.dispose();
-
             }
         });
 

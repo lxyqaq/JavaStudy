@@ -1,22 +1,21 @@
-package project.view;
+package view;
 
-import java.awt.Color;
+import control.FindListener;
+import control.TableListener;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import project.control.DiaListener;
-import project.control.InsertListener;
-import project.control.TableListener;
-import project.data.StaticData;
-
-public class InsertDialog extends JDialog {
-
+/**
+ * @ClassName FindDialog
+ * @Description TODO
+ * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Date 2020/11/28 17:08
+ * @Version 1.0
+ */
+public class FindDialog extends JDialog {
 
     private JLabel id, name, sex, age, academy, address;
     public static JLabel err;
@@ -24,29 +23,35 @@ public class InsertDialog extends JDialog {
     private JButton ok, cancle;
     public static JComboBox cb_sex, cb_ac;
 
-    public InsertDialog() {
+    public FindDialog() {
         this.setAlwaysOnTop(true);
-        this.setTitle("新增学生信息");
+        this.setTitle("Find employee information");
         this.setLayout(null);
         this.setSize(580, 320);
         this.setLocationRelativeTo(null);
-        this.addWindowFocusListener(new DiaListener());
+        int index = ManagerJpanel.jt.getSelectedRow();
+
         id = new JLabel(StaticData.S_ID + ":");
         name = new JLabel(StaticData.S_NAME + ":");
         sex = new JLabel(StaticData.S_SEX + ":");
         age = new JLabel(StaticData.S_CLASS + ":");
         academy = new JLabel(StaticData.S_ACADEMY + ":");
         address = new JLabel(StaticData.S_address + ":");
+
+
         err = new JLabel();
-        t_address = new JTextField();
-        t_academy = new JTextField();
         t_age = new JTextField();
         t_id = new JTextField();
         t_name = new JTextField();
+        t_address = new JTextField();
         cb_sex = new JComboBox();
         cb_ac = new JComboBox();
-        ok = new JButton("保存");
-        cancle = new JButton("取消");
+
+        ok = new JButton("Search");
+        cancle = new JButton("Cancel");
+
+        cb_sex.addItem("Male");
+        cb_sex.addItem("Female");
 
         id.setBounds(30, 50, 30, 30);
         t_id.setBounds(80, 50, 100, 30);
@@ -54,30 +59,31 @@ public class InsertDialog extends JDialog {
         t_name.setBounds(250, 50, 100, 30);
         sex.setBounds(370, 50, 30, 30);
         cb_sex.setBounds(420, 50, 100, 30);
-        cb_sex.addItem("男");
-        cb_sex.addItem("女");
+
         age.setBounds(30, 100, 30, 30);
         t_age.setBounds(80, 100, 100, 30);
         academy.setBounds(200, 100, 30, 30);
-        address.setBounds(370, 100, 100, 30);
-        t_address.setBounds(420, 100, 100, 30);
         cb_ac.setBounds(250, 100, 100, 30);
-        cb_ac.addItem("计算机学院");
-        cb_ac.addItem("经济管理学院");
-        cb_ac.addItem("艺术学院");
-        cb_ac.addItem("外国语学院");
-        cb_ac.addItem("海洋学院");
-        cb_ac.addItem("电信学院");
-        cb_ac.addItem("机械学院");
+        address.setBounds(370, 100, 30, 30);
+        t_address.setBounds(420, 100, 100, 30);
+
+        cb_ac.addItem("Front-end Development");
+        cb_ac.addItem("Back-end Development");
+        cb_ac.addItem("Software Test");
+        cb_ac.addItem("Big Data Development");
+        cb_ac.addItem("AI development");
+
         err.setBounds(30, 150, 120, 30);
         err.setForeground(Color.RED);
-        ok.setBounds(130, 200, 100, 30);
+
+        ok.setBounds(250, 200, 100, 30);
         cancle.setBounds(350, 200, 100, 30);
 
-        ok.addActionListener(new InsertListener());
+        ok.addActionListener(new FindListener());
+
         cancle.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                TableListener.jd_i.dispose();
+                TableListener.jd_u.dispose();
             }
         });
 
@@ -95,7 +101,6 @@ public class InsertDialog extends JDialog {
         add(cb_ac);
         add(err);
         add(ok);
-        add(cancle);
         setVisible(true);
     }
 

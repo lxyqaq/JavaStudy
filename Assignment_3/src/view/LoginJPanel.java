@@ -1,18 +1,19 @@
-package project.view;
+package view;
 
-import java.awt.Color;
+import control.LoginListener;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
-import project.control.LoginListener;
-import project.data.StaticData;
-
+/**
+ * @ClassName LoginJPanel
+ * @Description TODO
+ * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Date 2020/11/27 17:18
+ * @Version 1.0
+ */
 public class LoginJPanel extends JPanel {
     private JLabel lab_user, lab_pwd;
     public static JLabel lab_u_err, lab_p_err, login_err;
@@ -52,7 +53,6 @@ public class LoginJPanel extends JPanel {
                 new HelpDialog();
             }
         });
-
         this.add(lab_user);
         this.add(lab_pwd);
         this.add(lab_u_err);

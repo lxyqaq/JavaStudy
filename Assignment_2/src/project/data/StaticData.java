@@ -21,5 +21,4 @@ public class StaticData {
     public static final String S_SEX = "性别";
     public static final String S_ACADEMY = "学院";
     public static final String S_address = "地址";
-    public static final String S_file = "尚未开发";
 }
