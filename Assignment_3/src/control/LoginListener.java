@@ -65,9 +65,9 @@ public class LoginListener implements ActionListener {
             err = new JDialog();
             err.setLayout(null);
             JLabel jl_err = new JLabel("Incorrect username or password!");
-            jl_err.setBounds(100, 20, 200, 30);
+            jl_err.setBounds(100, 20, 250, 30);
             err.add(jl_err);
-            err.setSize(300, 130);
+            err.setSize(400, 130);
             err.setLocationRelativeTo(null);
             err.setVisible(true);
         }

@@ -38,11 +38,11 @@ public class LoginJPanel extends JPanel {
         lab_user.setBounds(390, 150, 100, 30);
         lab_pwd.setBounds(390, 200, 100, 30);
         tex_user.setBounds(470, 150, 100, 30);
-        lab_u_err.setBounds(580, 150, 120, 30);
+        lab_u_err.setBounds(580, 150, 200, 30);
         lab_u_err.setForeground(Color.RED);
         tex_pwd.setBounds(470, 200, 100, 30);
-        lab_p_err.setBounds(580, 200, 100, 30);
-        lab_u_err.setForeground(Color.RED);
+        lab_p_err.setBounds(580, 200, 200, 30);
+        lab_p_err.setForeground(Color.RED);
         but_login.setBounds(370, 250, 80, 30);
         but_help.setBounds(490, 250, 80, 30);
         login_err.setBounds(370, 300, 200, 30);

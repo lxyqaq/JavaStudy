@@ -20,7 +20,7 @@ public class OutDialog extends JDialog {
         this.setVisible(true);
         OutListener o = new OutListener();
         JLabel msg = new JLabel("Are you sure to log out?");
-        msg.setBounds(130, 20, 100, 30);
+        msg.setBounds(130, 20, 200, 30);
         JButton ok = new JButton("Yes");
         ok.setBounds(50, 80, 100, 30);
         ok.addActionListener(o);

@@ -34,7 +34,6 @@ public class FindListener implements ActionListener {
                     ManagerJpanel.jt.getValueAt(i, 0);
                     ManagerJpanel.jt.getValueAt(i, 0).toString();
                 } catch (NullPointerException e2) {
-
                     FindDialog.err.setText("No query results!");
                     break;
                 } catch (Exception e1) {
@@ -49,9 +48,7 @@ public class FindListener implements ActionListener {
                     String s_ac = ManagerJpanel.jt.getValueAt(i, 4).toString();
                     String s_sp = ManagerJpanel.jt.getValueAt(i, 5).toString();
 
-                    /*String[][] list = new String[1][6];
-                    list[0] = new String[]{s_id, s_name, s_sex, s_age, s_ac, s_sp};*/
-                    Object[] list = {s_id,s_name,s_sex,s_age,s_ac,s_sp};
+                    Object[] list = {s_id, s_name, s_sex, s_age, s_ac, s_sp};
                     QueryJDialog dialog = new QueryJDialog(list);
 
                     dialog.setAlwaysOnTop(true);
@@ -59,7 +56,6 @@ public class FindListener implements ActionListener {
                     dialog.setSize(1000, 320);
                     dialog.setLocationRelativeTo(null);
                     dialog.setVisible(true);
-
 
                     break;
                 }

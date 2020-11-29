@@ -26,7 +26,7 @@ public class UpdateDialog extends JDialog {
         this.setAlwaysOnTop(true);
         this.setTitle("Modify employee information");
         this.setLayout(null);
-        this.setSize(600, 350);
+        this.setSize(680, 350);
         this.setLocationRelativeTo(null);
         int index = ManagerJpanel.jt.getSelectedRow();
         System.out.println(index);
@@ -69,11 +69,10 @@ public class UpdateDialog extends JDialog {
         }
         age.setBounds(30, 100, 50, 30);
         t_age.setBounds(80, 100, 100, 30);
-        academy.setBounds(200, 100, 50, 30);
-        cb_ac.setBounds(250, 100, 100, 30);
-        address.setBounds(370, 100, 50, 30);
-        t_address.setBounds(420, 100, 100, 30);
-
+        academy.setBounds(200, 100, 100, 30);
+        cb_ac.setBounds(300, 100, 100, 30);
+        address.setBounds(420, 100, 100, 30);
+        t_address.setBounds(520, 100, 100, 30);
 
         if (s_ac.equals("Front-end Development")) {
             cb_ac.addItem("Front-end Development");

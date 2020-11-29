@@ -1,11 +1,16 @@
 package control;
 
+import bean.Archiect;
+import bean.Designer;
+import bean.Employee;
+import bean.Programmer;
 import view.InsertDialog;
 import view.ManagerJpanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.PublicKey;
 
 /**
  * @ClassName InsertListener
@@ -30,33 +35,81 @@ public class InsertListener implements ActionListener {
             InsertDialog.err.setText("None of the information can be empty!");
         } else {
             InsertDialog.err.setText("");
-            Object[] data = {id, name, sex, age, ac, sp};
-            ManagerJpanel.t_m.addRow(data);
-            masg = new JDialog();
-            masg.setAlwaysOnTop(true);
-            masg.setLayout(null);
-            JLabel jl = new JLabel("Added Successfully!");
-            jl.setBounds(110, 20, 150, 30);
-            masg.add(jl);
-            masg.setSize(300, 130);
-            masg.setLocationRelativeTo(null);
-            masg.setVisible(true);
-            masg.repaint();
-            Thread tr = new Thread() {
-                public void run() {
-                    try {
-                        this.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    masg.dispose();
-                    TableListener.jd_i.dispose();
-                    ManagerJpanel.row++;
-                }
+            if (sp.equals("Employee")) {
+                ManagerJpanel.arrayList.add(new Employee(id, name, sex, age, ac));
+                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
+                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
+                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
+                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
+                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
+                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
+                Object[] data = {id1, name1, sex1, salary1, department1, type1};
+                ManagerJpanel.t_m.addRow(data);
+                diplay();
+            } else if (sp.equals("Programmer")) {
+                ManagerJpanel.arrayList.add(new Programmer(id, name, sex, age, ac));
+                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
+                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
+                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
+                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
+                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
+                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
+                Object[] data = {id1, name1, sex1, salary1, department1, type1};
+                ManagerJpanel.t_m.addRow(data);
+                diplay();
+            } else if (sp.equals("Designer")) {
+                ManagerJpanel.arrayList.add(new Designer(id, name, sex, age, ac));
+                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
+                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
+                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
+                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
+                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
+                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
+                Object[] data = {id1, name1, sex1, salary1, department1, type1};
+                ManagerJpanel.t_m.addRow(data);
+                diplay();
+            } else if (sp.equals("Archiect")) {
+                ManagerJpanel.arrayList.add(new Archiect(id, name, sex, age, ac));
+                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
+                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
+                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
+                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
+                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
+                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
+                Object[] data = {id1, name1, sex1, salary1, department1, type1};
+                diplay();
+            } else {
+                InsertDialog.err.setText("Please enter the correct type of work");
+            }
 
-                ;
-            };
-            tr.start();
         }
+    }
+
+    public void diplay() {
+        masg = new JDialog();
+        masg.setAlwaysOnTop(true);
+        masg.setLayout(null);
+        JLabel jl = new JLabel("Added Successfully!");
+        jl.setBounds(110, 20, 150, 30);
+        masg.add(jl);
+        masg.setSize(300, 130);
+        masg.setLocationRelativeTo(null);
+        masg.setVisible(true);
+        masg.repaint();
+        Thread tr = new Thread() {
+            public void run() {
+                try {
+                    this.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                masg.dispose();
+                TableListener.jd_i.dispose();
+                ManagerJpanel.row++;
+            }
+
+            ;
+        };
+        tr.start();
     }
 }

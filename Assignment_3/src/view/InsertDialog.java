@@ -27,7 +27,7 @@ public class InsertDialog extends JDialog {
         this.setAlwaysOnTop(true);
         this.setTitle("Add employee information");
         this.setLayout(null);
-        this.setSize(580, 320);
+        this.setSize(680, 320);
         this.setLocationRelativeTo(null);
         this.addWindowFocusListener(new DiaListener());
         id = new JLabel(StaticData.S_ID + ":");
@@ -47,20 +47,20 @@ public class InsertDialog extends JDialog {
         ok = new JButton("Save");
         cancle = new JButton("Cancel");
 
-        id.setBounds(30, 50, 30, 30);
+        id.setBounds(30, 50, 50, 30);
         t_id.setBounds(80, 50, 100, 30);
-        name.setBounds(200, 50, 30, 30);
+        name.setBounds(200, 50, 50, 30);
         t_name.setBounds(250, 50, 100, 30);
-        sex.setBounds(370, 50, 30, 30);
+        sex.setBounds(370, 50, 50, 30);
         cb_sex.setBounds(420, 50, 100, 30);
         cb_sex.addItem("Male");
         cb_sex.addItem("Female");
-        age.setBounds(30, 100, 30, 30);
+        age.setBounds(30, 100, 50, 30);
         t_age.setBounds(80, 100, 100, 30);
-        academy.setBounds(200, 100, 30, 30);
-        address.setBounds(370, 100, 100, 30);
-        t_address.setBounds(420, 100, 100, 30);
-        cb_ac.setBounds(250, 100, 100, 30);
+        academy.setBounds(200, 100, 100, 30);
+        cb_ac.setBounds(300, 100, 100, 30);
+        address.setBounds(420, 100, 100, 30);
+        t_address.setBounds(520, 100, 100, 30);
         cb_ac.addItem("Front-end Development");
         cb_ac.addItem("Back-end Development");
         cb_ac.addItem("Software Test");
