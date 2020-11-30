@@ -38,7 +38,6 @@ public class UpdateDialog extends JDialog {
         String s_ac = ManagerJpanel.jt.getValueAt(index, 4).toString();
         String s_sp = ManagerJpanel.jt.getValueAt(index, 5).toString();
 
-
         id = new JLabel(StaticData.S_ID + ":");
         name = new JLabel(StaticData.S_NAME + ":");
         sex = new JLabel(StaticData.S_SEX + ":");
