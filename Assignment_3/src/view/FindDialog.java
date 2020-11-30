@@ -38,7 +38,6 @@ public class FindDialog extends JDialog {
         academy = new JLabel(StaticData.S_ACADEMY + ":");
         address = new JLabel(StaticData.S_address + ":");
 
-
         err = new JLabel();
         t_age = new JTextField();
         t_id = new JTextField();
