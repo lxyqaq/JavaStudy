@@ -12,6 +12,7 @@ import javax.swing.*;
  * @Version 1.0
  */
 public class HelpDialog extends JDialog {
+
     private JLabel lab1, lab2;
 
     public HelpDialog() {
@@ -25,4 +26,5 @@ public class HelpDialog extends JDialog {
         this.addWindowFocusListener(new DiaListener());
         this.setVisible(true);
     }
+
 }

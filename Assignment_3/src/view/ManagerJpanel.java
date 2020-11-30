@@ -20,13 +20,14 @@ import java.util.ArrayList;
  * @Version 1.0
  */
 public class ManagerJpanel extends JPanel {
+
     private JButton jb_del, jb_find, jb_update, jb_insert, jb_out;
     public JTextField tex_id;
     private JLabel lab_check, lab_id;
     public static int row = 6;
     public static String[] t_head = {"ID", "Name", "Gender", "Salary", "Department", "Type"};
     public static ArrayList<Employee> arrayList = new ArrayList<Employee>();
-    public static DefaultTableModel t_m = new DefaultTableModel(t_head,0);
+    public static DefaultTableModel t_m = new DefaultTableModel(t_head, 0);
 
     public static final JTable jt = new JTable(t_m) {
         public boolean isCellEditable(int row, int column) {

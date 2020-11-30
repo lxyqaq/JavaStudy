@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
  * @Version 1.0
  */
 public class LoginJPanel extends JPanel {
+
     private JLabel lab_user, lab_pwd;
     public static JLabel lab_u_err, lab_p_err, login_err;
     public static JTextField tex_user, tex_pwd;
@@ -48,11 +49,13 @@ public class LoginJPanel extends JPanel {
         login_err.setBounds(370, 300, 200, 30);
         login_err.setForeground(Color.RED);
         but_login.addActionListener(new LoginListener());
+
         but_help.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 new HelpDialog();
             }
         });
+
         this.add(lab_user);
         this.add(lab_pwd);
         this.add(lab_u_err);
@@ -63,4 +66,5 @@ public class LoginJPanel extends JPanel {
         this.add(but_help);
         this.add(login_err);
     }
+
 }

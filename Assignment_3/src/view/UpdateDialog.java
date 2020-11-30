@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
  * @Version 1.0
  */
 public class UpdateDialog extends JDialog {
+
     private JLabel id, name, sex, age, academy, address;
     public static JLabel err;
     public static JTextField t_id, t_name, t_sex, t_age, t_academy, t_address;
@@ -140,4 +141,5 @@ public class UpdateDialog extends JDialog {
         add(cancle);
         setVisible(true);
     }
+
 }

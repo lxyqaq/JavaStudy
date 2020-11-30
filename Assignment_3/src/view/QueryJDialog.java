@@ -16,6 +16,7 @@ import view.ManagerJpanel;
  * @Version 1.0
  */
 public class QueryJDialog extends JDialog {
+
     private JButton jb_del, jb_find, jb_update, jb_insert, jb_out;
     public JTextField tex_id;
     private JLabel lab_check, lab_id;
@@ -24,12 +25,14 @@ public class QueryJDialog extends JDialog {
     private JScrollPane js;
 
     public QueryJDialog(Object[] str) {
-        DefaultTableModel t_m = new DefaultTableModel(ManagerJpanel.t_head,0);
+
+        DefaultTableModel t_m = new DefaultTableModel(ManagerJpanel.t_head, 0);
         JTable jt = new JTable(t_m) {
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
+
         t_m.addRow(str);
         this.repaint();
         this.setLayout(null);
@@ -68,4 +71,5 @@ public class QueryJDialog extends JDialog {
         g2d.setColor(Color.GRAY);
         g2d.drawLine(150, 0, 150, 600);
     }
+
 }
