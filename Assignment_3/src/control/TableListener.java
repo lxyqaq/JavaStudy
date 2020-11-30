@@ -31,7 +31,7 @@ public class TableListener implements MouseListener {
                 JLabel jl_err = new JLabel("Please select students first!");
                 jl_err.setBounds(100, 20, 200, 30);
                 err.add(jl_err);
-                err.setSize(300, 130);
+                err.setSize(350, 130);
                 err.setLocationRelativeTo(null);
                 err.setVisible(true);
 
@@ -57,7 +57,7 @@ public class TableListener implements MouseListener {
                 JLabel jl_err = new JLabel("Successfully Deleted!");
                 jl_err.setBounds(110, 20, 200, 30);
                 err.add(jl_err);
-                err.setSize(300, 130);
+                err.setSize(350, 130);
                 err.setLocationRelativeTo(null);
                 err.setVisible(true);
 
@@ -80,7 +80,7 @@ public class TableListener implements MouseListener {
                 JLabel jl_err = new JLabel("Only a single employee can be modified!");
                 jl_err.setBounds(60, 20, 200, 30);
                 err.add(jl_err);
-                err.setSize(300, 130);
+                err.setSize(350, 130);
                 err.setLocationRelativeTo(null);
                 err.setVisible(true);
 
@@ -104,7 +104,7 @@ public class TableListener implements MouseListener {
                 JLabel jl_err = new JLabel("Please select employees first!");
                 jl_err.setBounds(100, 20, 200, 30);
                 err.add(jl_err);
-                err.setSize(300, 130);
+                err.setSize(350, 130);
                 err.setLocationRelativeTo(null);
                 err.setVisible(true);
 
@@ -131,7 +131,7 @@ public class TableListener implements MouseListener {
                 JLabel jl_err = new JLabel("The number of employees has reached the maximum!");
                 jl_err.setBounds(70, 20, 200, 30);
                 err.add(jl_err);
-                err.setSize(300, 130);
+                err.setSize(350, 130);
                 err.setLocationRelativeTo(null);
                 err.setVisible(true);
 

@@ -92,7 +92,7 @@ public class InsertListener implements ActionListener {
         JLabel jl = new JLabel("Added Successfully!");
         jl.setBounds(110, 20, 150, 30);
         masg.add(jl);
-        masg.setSize(300, 130);
+        masg.setSize(350, 130);
         masg.setLocationRelativeTo(null);
         masg.setVisible(true);
         masg.repaint();
