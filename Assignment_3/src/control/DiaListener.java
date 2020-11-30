@@ -11,6 +11,7 @@ import java.awt.event.WindowFocusListener;
  * @Version 1.0
  */
 public class DiaListener implements WindowFocusListener {
+
     public void windowGainedFocus(WindowEvent e) {
 
     }
@@ -18,4 +19,5 @@ public class DiaListener implements WindowFocusListener {
     public void windowLostFocus(WindowEvent e) {
         e.getComponent().disable();
     }
+
 }

@@ -75,41 +75,41 @@ public class UpdateDialog extends JDialog {
         address.setBounds(420, 100, 100, 30);
         t_address.setBounds(520, 100, 100, 30);
 
-        if (s_ac.equals("Front-end Development")) {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+        if (s_ac.equals("Front-end")) {
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
-        } else if (s_ac.equals("Back-end Development")) {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+        } else if (s_ac.equals("Back-end")) {
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
         } else if (s_ac.equals("Software Test")) {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
-        } else if (s_ac.equals("Big Data Development")) {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+        } else if (s_ac.equals("Big Data")) {
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
         } else if (s_ac.equals("AI development")) {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
         } else {
-            cb_ac.addItem("Front-end Development");
-            cb_ac.addItem("Back-end Development");
+            cb_ac.addItem("Front-end");
+            cb_ac.addItem("Back-end");
             cb_ac.addItem("Software Test");
-            cb_ac.addItem("Big Data Development");
+            cb_ac.addItem("Big Data");
             cb_ac.addItem("AI development");
         }
         err.setBounds(30, 150, 120, 30);

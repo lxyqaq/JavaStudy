@@ -37,52 +37,36 @@ public class InsertListener implements ActionListener {
             InsertDialog.err.setText("");
             if (sp.equals("Employee")) {
                 ManagerJpanel.arrayList.add(new Employee(id, name, sex, age, ac));
-                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
-                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
-                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
-                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
-                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
-                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
-                Object[] data = {id1, name1, sex1, salary1, department1, type1};
-                ManagerJpanel.t_m.addRow(data);
+                addData();
                 diplay();
             } else if (sp.equals("Programmer")) {
                 ManagerJpanel.arrayList.add(new Programmer(id, name, sex, age, ac));
-                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
-                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
-                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
-                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
-                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
-                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
-                Object[] data = {id1, name1, sex1, salary1, department1, type1};
-                ManagerJpanel.t_m.addRow(data);
+                addData();
                 diplay();
             } else if (sp.equals("Designer")) {
                 ManagerJpanel.arrayList.add(new Designer(id, name, sex, age, ac));
-                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
-                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
-                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
-                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
-                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
-                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
-                Object[] data = {id1, name1, sex1, salary1, department1, type1};
-                ManagerJpanel.t_m.addRow(data);
+                addData();
                 diplay();
             } else if (sp.equals("Archiect")) {
                 ManagerJpanel.arrayList.add(new Archiect(id, name, sex, age, ac));
-                String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
-                String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
-                String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
-                String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
-                String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
-                String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
-                Object[] data = {id1, name1, sex1, salary1, department1, type1};
+                addData();
                 diplay();
             } else {
                 InsertDialog.err.setText("Please enter the correct type of work");
             }
 
         }
+    }
+
+    public void addData() {
+        String id1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getId();
+        String name1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getName();
+        String sex1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSex();
+        String salary1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getSalary();
+        String department1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).getDepartment();
+        String type1 = ManagerJpanel.arrayList.get(ManagerJpanel.arrayList.size() - 1).readType();
+        Object[] data = {id1, name1, sex1, salary1, department1, type1};
+        ManagerJpanel.t_m.addRow(data);
     }
 
     public void diplay() {

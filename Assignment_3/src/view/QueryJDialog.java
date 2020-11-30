@@ -21,7 +21,6 @@ public class QueryJDialog extends JDialog {
     public JTextField tex_id;
     private JLabel lab_check, lab_id;
     public Object[] str;
-    public int row = 6;
     private JScrollPane js;
 
     public QueryJDialog(Object[] str) {

@@ -62,10 +62,10 @@ public class InsertDialog extends JDialog {
         cb_ac.setBounds(300, 100, 100, 30);
         address.setBounds(420, 100, 100, 30);
         t_address.setBounds(520, 100, 100, 30);
-        cb_ac.addItem("Front-end Development");
-        cb_ac.addItem("Back-end Development");
+        cb_ac.addItem("Front-end");
+        cb_ac.addItem("Back-end");
         cb_ac.addItem("Software Test");
-        cb_ac.addItem("Big Data Development");
+        cb_ac.addItem("Big Data");
         cb_ac.addItem("AI development");
         err.setBounds(30, 150, 120, 30);
         err.setForeground(Color.RED);
