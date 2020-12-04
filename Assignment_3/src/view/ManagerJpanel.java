@@ -38,12 +38,12 @@ public class ManagerJpanel extends JPanel {
 
     public ManagerJpanel() {
 
-        arrayList.add(new Employee("1", "jack", "man", "3000", "Front-end"));
-        arrayList.add(new Programmer("2", "jack", "man", "3000", "Back-end"));
-        arrayList.add(new Designer("3", "jack", "man", "3000", "Software Test"));
-        arrayList.add(new Archiect("4", "jack", "man", "3000", "AI Development"));
-        arrayList.add(new Programmer("5", "jack", "man", "3000", "Back-end"));
-        arrayList.add(new Programmer("6", "jack", "man", "3000", "Big data"));
+        arrayList.add(new Employee("1", "Jack", "Male", "12000", "Front-end"));
+        arrayList.add(new Programmer("2", "Nathan", "Male", "15000", "Back-end"));
+        arrayList.add(new Designer("3", "Nancy", "Female", "10000", "Software Test"));
+        arrayList.add(new Archiect("4", "John", "Male", "18000", "AI Development"));
+        arrayList.add(new Programmer("5", "Linda", "Female", "11000", "Back-end"));
+        arrayList.add(new Programmer("6", "Tom", "Male", "14000", "Big data"));
         for (int i = 0; i < arrayList.size(); i++) {
             String id = arrayList.get(i).getId();
             String name = arrayList.get(i).getName();

@@ -14,7 +14,7 @@ public class Designer extends Employee {
     }
 
     public String readType() {
-        return "Design system approach";
+        return "Design algorithm";
     }
 
 }
