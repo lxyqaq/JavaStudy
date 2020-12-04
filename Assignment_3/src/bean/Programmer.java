@@ -14,7 +14,7 @@ public class Programmer extends Employee {
     }
 
     public String readType() {
-        return "Programmer";
+        return "Write code";
     }
 
 }

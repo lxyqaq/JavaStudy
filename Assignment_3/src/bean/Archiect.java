@@ -14,7 +14,7 @@ public class Archiect extends Employee{
     }
 
     public String readType() {
-        return "Archiect";
+        return "Design system architecture";
     }
 
 }
