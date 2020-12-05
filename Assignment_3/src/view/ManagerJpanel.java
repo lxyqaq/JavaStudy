@@ -37,13 +37,18 @@ public class ManagerJpanel extends JPanel {
     private JScrollPane js;
 
     public ManagerJpanel() {
-
-        arrayList.add(new Employee("1", "Jack", "Male", "12000", "Front-end"));
-        arrayList.add(new Programmer("2", "Nathan", "Male", "15000", "Back-end"));
-        arrayList.add(new Designer("3", "Nancy", "Female", "10000", "Software Test"));
-        arrayList.add(new Archiect("4", "John", "Male", "18000", "AI Development"));
-        arrayList.add(new Programmer("5", "Linda", "Female", "11000", "Back-end"));
-        arrayList.add(new Programmer("6", "Tom", "Male", "14000", "Big data"));
+        Employee e1 = new Employee("1", "Jack", "Male", "12000", "Front-end");
+        Employee e2 = new Programmer("2", "Nathan", "Male", "15000", "Back-end");
+        Employee e3 = new Designer("3", "Nancy", "Female", "10000", "Software Test");
+        Employee e4 = new Archiect("4", "John", "Male", "18000", "AI Development");
+        Employee e5 = new Programmer("5", "Linda", "Female", "11000", "Back-end");
+        Employee e6 = new Programmer("6", "Tom", "Male", "14000", "Big data");
+        arrayList.add(e1);
+        arrayList.add(e2);
+        arrayList.add(e3);
+        arrayList.add(e4);
+        arrayList.add(e5);
+        arrayList.add(e6);
         for (int i = 0; i < arrayList.size(); i++) {
             String id = arrayList.get(i).getId();
             String name = arrayList.get(i).getName();
