@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 /**
  * @ClassName UpdateDialog
  * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/28 16:18
  * @Version 1.0
  */

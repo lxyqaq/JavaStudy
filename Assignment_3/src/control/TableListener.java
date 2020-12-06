@@ -9,7 +9,7 @@ import java.awt.event.MouseListener;
 /**
  * @ClassName TableListener
  * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/27 17:29
  * @Version 1.0
  */

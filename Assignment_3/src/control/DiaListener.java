@@ -6,7 +6,7 @@ import java.awt.event.WindowFocusListener;
 /**
  * @ClassName DiaListener
  * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/27 17:26
  * @Version 1.0
  */

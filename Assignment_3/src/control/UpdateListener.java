@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * @ClassName UpdateListener
  * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/28 16:19
  * @Version 1.0
  */

@@ -3,7 +3,7 @@ package bean;
 /**
  * @ClassName Archiect
  * @Description TODO
- * @Author lxyqaq @Email A00279565@student.ait.ie
+ * @Author Xiangyu Liu @Email A00279565@student.ait.ie
  * @Date 2020/11/27 16:56
  * @Version 1.0
  */
