@@ -1,16 +1,15 @@
 package control;
 
-import bean.Archiect;
-import bean.Designer;
-import bean.Employee;
-import bean.Programmer;
+import model.Archiect;
+import model.Designer;
+import model.Employee;
+import model.Programmer;
 import view.InsertDialog;
 import view.ManagerJpanel;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.PublicKey;
 
 /**
  * @ClassName InsertListener

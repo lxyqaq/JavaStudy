@@ -1,6 +1,6 @@
 package ui;
 
-import bean.Customer;
+import model.Customer;
 import service.CustomerList;
 import util.CMUtility;
 

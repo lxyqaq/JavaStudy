@@ -1,11 +1,10 @@
 package view;
 
-import bean.Archiect;
-import bean.Designer;
-import bean.Employee;
-import bean.Programmer;
+import model.Archiect;
+import model.Designer;
+import model.Employee;
+import model.Programmer;
 import control.TableListener;
-import main.Main;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

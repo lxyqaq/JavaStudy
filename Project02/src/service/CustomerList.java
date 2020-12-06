@@ -1,6 +1,6 @@
 package service;
 
-import bean.Customer;
+import model.Customer;
 
 /**
  * @ClassName CustomerList
