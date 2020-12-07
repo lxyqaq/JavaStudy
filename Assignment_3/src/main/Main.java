@@ -3,7 +3,6 @@ package main;
 import view.TopJFrame;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * @ClassName Main
