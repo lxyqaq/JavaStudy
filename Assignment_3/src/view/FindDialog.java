@@ -72,7 +72,7 @@ public class FindDialog extends JDialog {
         cb_ac.addItem("Big Data");
         cb_ac.addItem("AI development");
 
-        err.setBounds(30, 150, 120, 30);
+        err.setBounds(30, 150, 150, 30);
         err.setForeground(Color.RED);
 
         ok.setBounds(250, 200, 100, 30);
