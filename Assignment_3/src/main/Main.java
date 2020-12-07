@@ -18,7 +18,7 @@ public class Main {
     public static TopJFrame top;
 
     public static void main(String[] args) throws IOException {
-        top = new TopJFrame("Staff Information Management System");
+        top = new TopJFrame("Employee Information Management System");
     }
 
 }
