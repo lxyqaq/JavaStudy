@@ -4,7 +4,6 @@ import view.TopJFrame;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  * @ClassName Main
