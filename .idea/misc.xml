@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/javaweb01" />
+    <file type="web" url="file://$PROJECT_DIR$/MavenTest" />
+    <file type="web" url="file://$PROJECT_DIR$/MavenTest2" />
+    <file type="web" url="file://$PROJECT_DIR$/Test5" />
+    <file type="web" url="file://$PROJECT_DIR$/Test6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/MavenTest/pom.xml" />
+        <option value="$PROJECT_DIR$/javaweb01/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
