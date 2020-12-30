@@ -30,6 +30,7 @@
       <module fileurl="file://$PROJECT_DIR$/javaweb01/javaweb01.iml" filepath="$PROJECT_DIR$/javaweb01/javaweb01.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb02/javaweb02.iml" filepath="$PROJECT_DIR$/javaweb02/javaweb02.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaweb03/javaweb03.iml" filepath="$PROJECT_DIR$/javaweb03/javaweb03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--  配置环境信息，可以配置多个  -->
+    <environments default="development">
+        <environment id="development">
+            <!--  默认使用JDBC中的事务管理器  -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/student"/>
+                <property name="username" value="root"/>
+                <property name="password" value="19980128"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="org/example/dao/UsersMapper.xml"/>
+    </mappers>
+</configuration>
