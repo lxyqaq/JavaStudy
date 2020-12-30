@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="javaweb03" />
         <module name="javaweb02" />
         <module name="javaweb01" />
       </profile>
@@ -13,6 +14,7 @@
     <bytecodeTargetLevel target="11">
       <module name="javaweb01" target="1.8" />
       <module name="javaweb02" target="1.8" />
+      <module name="javaweb03" target="11" />
       <module name="Test5" target="11" />
       <module name="Test6" target="1.5" />
     </bytecodeTargetLevel>

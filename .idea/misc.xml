@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/javaweb01" />
     <file type="web" url="file://$PROJECT_DIR$/javaweb02" />
+    <file type="web" url="file://$PROJECT_DIR$/javaweb03" />
     <file type="web" url="file://$PROJECT_DIR$/MavenTest" />
     <file type="web" url="file://$PROJECT_DIR$/MavenTest2" />
     <file type="web" url="file://$PROJECT_DIR$/Test5" />
@@ -14,6 +15,7 @@
         <option value="$PROJECT_DIR$/MavenTest/pom.xml" />
         <option value="$PROJECT_DIR$/javaweb01/pom.xml" />
         <option value="$PROJECT_DIR$/javaweb02/pom.xml" />
+        <option value="$PROJECT_DIR$/javaweb03/pom.xml" />
       </list>
     </option>
   </component>
